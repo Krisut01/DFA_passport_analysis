@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilHealth - Philippine Health Insurance Corporation</title>
+    <style>
+        /* ============================================
+           HIGH-FIDELITY VISUAL SYSTEM
+           WCAG 2.x AA Compliant Design System
+           ============================================ */
+        
+        /* Color Palette - WCAG AA Compliant - Green Theme */ 
+        :root {
+            --primary-green: #006600;      /* 7.2:1 on white */
+            --primary-green-light: #008844; /* 4.8:1 on white */
+            --primary-text: #1A1A1A;       /* 16.8:1 on white */
+            --secondary-text: #4A4A4A;     /* 8.9:1 on white */
+            --background: #FFFFFF;
+            --accent-green: #00AA44;       /* Icons only */
+            --error-red: #CC0000;          /* 5.7:1 on white */
+            --focus-outline: #006600;      /* 3:1 contrast */
+            --card-shadow: rgba(0, 0, 0, 0.1);
+            --hover-shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        /* Typography System */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--primary-text);
+            background-color: var(--background);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--secondary-text);
+            margin-bottom: 16px;
+        }
+
+        .small-text {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Skip Link for Screen Readers - WCAG 2.4.1 */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-green);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* ============================================
+           HEADER NAVIGATION COMPONENT
+           WCAG: 2.4.7 Focus Visible, 2.4.1 Bypass Blocks
+           ============================================ */
+        header {
+            background-color: var(--background);
+            border-bottom: 2px solid #E0E0E0;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            max-width: 200px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        nav a:hover {
+            background-color: #F0F0F0;
+        }
+
+        nav a:focus {
+            outline: 2px solid var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        /* ============================================
+           SEARCH COMPONENT
+           WCAG: 3.3.2 Labels, 2.1.1 Keyboard
+           ============================================ */
+        .search-container {
+            max-width: 1200px;
+            margin: 32px auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 8px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .search-box label {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 16px;
+            font-size: 16px;
+            border: 2px solid #CCCCCC;
+            border-radius: 4px;
+            color: var(--primary-text);
+        }
+
+        .search-box input:focus {
+            outline: 2px solid var(--focus-outline);
+            outline-offset: 2px;
+            border-color: var(--primary-green);
+        }
+
+        /* ============================================
+           PRIMARY BUTTON COMPONENT
+           WCAG: 1.4.3 Contrast, 2.4.7 Focus, 2.5.5 Target Size
+           ============================================ */
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            min-height: 44px;
+            min-width: 44px;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #005200;
+            box-shadow: 0 2px 8px var(--card-shadow);
+        }
+
+        .btn-primary:focus {
+            outline: 2px solid var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        .btn-primary:active {
+            background-color: #003D00;
+        }
+
+        /* ============================================
+           SERVICE CARD COMPONENT
+           WCAG: 1.4.3 Contrast, 1.1.1 Non-text Content, 2.4.7 Focus
+           ============================================ */
+        .hero-section {
+            max-width: 1200px;
+            margin: 48px auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        .dashboard-showcase {
+            max-width: 1200px;
+            margin: 48px auto;
+            padding: 0 24px;
+        }
+
+        .dashboard-image-container {
+            background: var(--background);
+            border-radius: 8px;
+            box-shadow: 0 4px 16px var(--hover-shadow);
+            padding: 24px;
+            margin: 32px 0;
+            overflow: hidden;
+        }
+
+        .dashboard-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .dashboard-caption {
+            margin-top: 16px;
+            color: var(--secondary-text);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* ============================================
+           FEATURED BENEFITS CAROUSEL (HORIZONTAL STRIP)
+           ============================================ */
+        .carousel-section {
+            max-width: 1200px;
+            margin: 48px auto;
+            padding: 0 24px;
+        }
+
+        .carousel-heading {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .carousel-description {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .carousel-track:focus-visible {
+            outline: 2px solid var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        .carousel-item {
+            min-width: 260px;
+            max-width: 320px;
+            background: var(--background);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--card-shadow);
+            scroll-snap-align: start;
+            flex-shrink: 0;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+            display: block;
+        }
+
+        .carousel-item-caption {
+            padding: 12px 16px 16px;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 48px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--background);
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 2px 8px var(--card-shadow);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 4px 12px var(--hover-shadow);
+            transform: translateY(-2px);
+        }
+
+        .service-card:focus-within {
+            outline: 2px solid var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            background-color: #E8F5E9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .service-card h3 {
+            color: var(--primary-text);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .service-card .btn-primary {
+            width: 100%;
+        }
+
+        /* ============================================
+           INFO SECTION
+           ============================================ */
+        .info-section {
+            background-color: #F8F9FA;
+            padding: 48px 24px;
+            margin-top: 64px;
+        }
+
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .info-card {
+            background: var(--background);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--card-shadow);
+        }
+
+        .info-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 12px;
+        }
+
+        /* ============================================
+           FOOTER COMPONENT
+           WCAG: 1.3.1 Info and Relationships, 2.4.4 Link Purpose
+           ============================================ */
+        footer {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            padding: 48px 24px 24px;
+            margin-top: 64px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+        }
+
+        .footer-section h3 {
+            color: #FFFFFF;
+            margin-bottom: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #CCCCCC;
+            text-decoration: none;
+            line-height: 2;
+        }
+
+        .footer-section a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+
+        .footer-section a:focus {
+            outline: 2px solid #FFFFFF;
+            outline-offset: 2px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 32px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid #333333;
+            text-align: center;
+            color: #CCCCCC;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .logo img {
+                height: 48px;
+            }
+
+            nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            nav a {
+                display: block;
+                text-align: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 8px 0;
+            }
+
+            .header-container {
+                padding: 0 16px;
+            }
+
+            nav ul {
+                gap: 4px;
+            }
+
+            .search-container {
+                padding: 0 16px;
+            }
+
+            /* Stack search input and button on very small screens
+               so the button label does not get cut off */
+            .search-box {
+                flex-direction: column;
+                max-width: 100%;
+            }
+
+            .search-box button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link - WCAG 2.4.1 Bypass Blocks -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header Navigation Component -->
+    <header role="banner">
+        <div class="header-container">
+            <a href="/" class="logo" aria-label="PhilHealth Home">
+                <img src="LOGO/Philippine_Health_Insurance_Corporation_(PhilHealth).svg.png" alt="PhilHealth Logo">
+            </a>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#members">Members</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero-section" aria-labelledby="hero-heading">
+            <h1 id="hero-heading">Philippine Health Insurance Corporation</h1>
+            <p>Your partner in providing quality health insurance services to all Filipinos</p>
+            
+            <!-- Search Component -->
+            <div class="search-container">
+                <form class="search-box" role="search" aria-label="Site search">
+                    <label for="search-input">Search PhilHealth services and information</label>
+                    <input 
+                        type="search" 
+                        id="search-input" 
+                        name="search" 
+                        placeholder="Search services, benefits, or information..."
+                        aria-label="Search input"
+                    >
+                    <button type="submit" class="btn-primary" aria-label="Search">Search</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Dashboard Showcase Section -->
+        <section class="dashboard-showcase" aria-labelledby="dashboard-heading">
+            <h2 id="dashboard-heading" style="text-align: center; margin-bottom: 24px;">Member Dashboard</h2>
+            <div class="dashboard-image-container">
+                <img 
+                    src="dashboard/dashboard.jpg" 
+                    alt="PhilHealth Member Dashboard showing account overview, benefits, and services"
+                    loading="lazy"
+                >
+                <p class="dashboard-caption">Access your personalized dashboard to manage your membership, view benefits, and track your health insurance coverage.</p>
+            </div>
+        </section>
+
+        <!-- Featured Benefit Packages (Carousel-Style Strip) -->
+        <section class="carousel-section" aria-labelledby="benefits-carousel-heading">
+            <h2 id="benefits-carousel-heading" class="carousel-heading">Featured Benefit Packages</h2>
+            <p class="carousel-description">
+                Explore PhilHealth benefit packages for serious health conditions such as kidney disease and heart surgery.
+            </p>
+            <div class="carousel-track" role="list" aria-label="Featured PhilHealth benefit packages">
+                <article class="carousel-item" role="listitem">
+                    <img src="Carousel/Hemodialysis.jpg"
+                         alt="PhilHealth Hemodialysis benefit package illustration showing dialysis treatment equipment"
+                         loading="lazy">
+                    <div class="carousel-item-caption">
+                        <h3>Hemodialysis Package</h3>
+                        <p class="small-text">Coverage for outpatient hemodialysis sessions under PhilHealth benefit packages.</p>
+                    </div>
+                </article>
+                <article class="carousel-item" role="listitem">
+                    <img src="Carousel/PeritonealDialysis.jpg"
+                         alt="PhilHealth Peritoneal Dialysis benefit package illustration showing home-based dialysis"
+                         loading="lazy">
+                    <div class="carousel-item-caption">
+                        <h3>Peritoneal Dialysis Package</h3>
+                        <p class="small-text">Support for home-based peritoneal dialysis treatment for eligible members.</p>
+                    </div>
+                </article>
+                <article class="carousel-item" role="listitem">
+                    <img src="Carousel/KidneyTransplant.jpg"
+                         alt="PhilHealth Kidney Transplant benefit package illustration showing kidney transplant surgery"
+                         loading="lazy">
+                    <div class="carousel-item-caption">
+                        <h3>Kidney Transplant Package</h3>
+                        <p class="small-text">Financial assistance for kidney transplant procedures in accredited facilities.</p>
+                    </div>
+                </article>
+                <article class="carousel-item" role="listitem">
+                    <img src="Carousel/HeartValveRepair.jpg"
+                         alt="PhilHealth Heart Valve Repair benefit package illustration showing heart surgery"
+                         loading="lazy">
+                    <div class="carousel-item-caption">
+                        <h3>Heart Valve Repair Package</h3>
+                        <p class="small-text">Coverage for heart valve repair surgeries for qualified PhilHealth members.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Services Grid - Service Card Components -->
+        <section class="services-grid" aria-labelledby="services-heading">
+            <h2 id="services-heading" style="grid-column: 1 / -1; text-align: center; margin-bottom: 32px;">Online Services</h2>
+            
+            <article class="service-card" tabindex="0">
+                <div class="service-icon" aria-hidden="true">📋</div>
+                <h3>Member Registration</h3>
+                <p>Register as a new PhilHealth member and get access to comprehensive health insurance coverage.</p>
+                <button class="btn-primary" aria-label="Register as a new member">Register Now</button>
+            </article>
+
+            <article class="service-card" tabindex="0">
+                <div class="service-icon" aria-hidden="true">💳</div>
+                <h3>Premium Payment</h3>
+                <p>Pay your monthly premiums online securely and conveniently through various payment methods.</p>
+                <button class="btn-primary" aria-label="Pay your premium online">Pay Premium</button>
+            </article>
+
+            <article class="service-card" tabindex="0">
+                <div class="service-icon" aria-hidden="true">🏥</div>
+                <h3>Check Benefits</h3>
+                <p>View your available benefits, coverage details, and eligibility requirements for healthcare services.</p>
+                <button class="btn-primary" aria-label="Check your benefits">View Benefits</button>
+            </article>
+
+            <article class="service-card" tabindex="0">
+                <div class="service-icon" aria-hidden="true">📊</div>
+                <h3>Member Portal</h3>
+                <p>Access your member account, update information, and manage your PhilHealth membership online.</p>
+                <button class="btn-primary" aria-label="Access member portal">Member Portal</button>
+            </article>
+
+            <article class="service-card" tabindex="0">
+                <div class="service-icon" aria-hidden="true">📍</div>
+                <h3>Find Office</h3>
+                <p>Locate the nearest PhilHealth office in your area for in-person services and assistance.</p>
+                <button class="btn-primary" aria-label="Find nearest PhilHealth office">Find Office</button>
+            </article>
+
+            <article class="service-card" tabindex="0">
+                <div class="service-icon" aria-hidden="true">📄</div>
+                <h3>Download Forms</h3>
+                <p>Download official forms, documents, and guidelines for various PhilHealth transactions.</p>
+                <button class="btn-primary" aria-label="Download forms and documents">Download</button>
+            </article>
+        </section>
+
+        <!-- Information Section -->
+        <section class="info-section" aria-labelledby="info-heading">
+            <div class="info-container">
+                <div class="info-card">
+                    <h3>24/7 Hotline</h3>
+                    <p class="small-text">(02) 866-225-88</p>
+                    <p class="small-text">Available anytime for member assistance</p>
+                </div>
+                <div class="info-card">
+                    <h3>Mobile Hotlines</h3>
+                    <p class="small-text">Smart: 0998-857-2957</p>
+                    <p class="small-text">Globe: 0917-127-5987</p>
+                </div>
+                <div class="info-card">
+                    <h3>Email Support</h3>
+                    <p class="small-text">actioncenter@philhealth.gov.ph</p>
+                    <p class="small-text">Response within 24-48 hours</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer role="contentinfo" aria-labelledby="footer-heading">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 id="footer-heading">Quick Links</h3>
+                <ul>
+                    <li><a href="#members">Members</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#services">Online Services</a></li>
+                    <li><a href="#partners">Our Partners</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="tel:+63286622588">(02) 866-225-88</a></li>
+                    <li><a href="mailto:actioncenter@philhealth.gov.ph">actioncenter@philhealth.gov.ph</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/PhilHealthofficial" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="https://twitter.com/teamphilhealth" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Philippine Health Insurance Corporation. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,27 @@
+The Modular Redesign Sprint
+Project Goal
+
+Select a public-facing service with accessibility/usability issues. Conduct a rapid analytic evaluation and propose a high-fidelity redesign of one core screen that strictly adheres to WCAG 2.x standards, built entirely from a Modular Design Framework (MDF).
+
+ 
+
+Part 1: Diagnostic Evaluation & Analysis (40 Points)
+
+This section remains analytical, focusing on the justification and findings.
+
+System Context & Justification (15 Points) - Identify the system, its target user group, and main purpose. Explain the purpose, scope, context, and timing of your evaluation. Justify using a User-Free (Analytic) Setting for this time constraint.
+Settings & Methods (P-BA 2) (15 Points)- Compare and contrast two different evaluation settings (e.g., Controlled vs. Natural setting). Justify the selection of your specific analytic evaluation method and briefly explain how it's combined with WCAG auditing.
+Accessibility & Usability Findings (10 Points) - Document the Top 4 Critical Problems found. At least two problems must be Accessibility Issues, citing the specific WCAG 2.x Success Criterion violated (e.g., 1.4.3 Contrast (Minimum)).
+Part 2: High-Fidelity Modular Strategy & Redesign (60 Points)
+This section requires polished execution and robust accessibility rationale.
+
+Basic Unit & High-Fidelity Visual System (15 Points) - Analyze the system to identify its core object or "basic unit." Define your High-Fidelity, WCAG-compliant Core Visual System, including:
+Color Palette: Ensure colors meet WCAG 2.x AA contrast ratios (cite contrast for text/background).
+Typography: Define accessible font sizes, weights, and clear hierarchy.
+Style Definition: Define corner radii, shadow styles, and visual treatments required for Hi-Fi.
+MDF Principles & Impact (15 Points) - Explain the core principles of MDF. Analyze its direct impact on reusability and future iterative development, specifically detailing how modularity ensures consistent, scalable accessibility.
+High-Fidelity Mockup & WCAG Rationale (P-BA 3) (10 Points) - Create ONE high-fidelity screen mockup that solves the critical problems from Part 1. This must demonstrate:
+Polished visual design adhering to your defined system.
+Organized clustering of 3-5 core modular components.
+A concise WCAG 2.x Rationale for each component, explaining how your design ensures accessibility (e.g., proper hover/focus states, semantic structure).
+Specialized Component Adaptation & Quality (P-BA 4) (10 Points) - Adapt one of your core components (e.g., a button, a card) to meet the constraints of a specialized interface (e.g., smart watch, voice UI). Show the adapted component and briefly explain the necessary accessibility trade-offs. Overall clarity, professionalism, and visual coherence of the submission.
