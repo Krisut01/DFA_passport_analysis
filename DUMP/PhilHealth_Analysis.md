@@ -6,6 +6,9 @@
 **Date:** 2024  
 **Evaluation Method:** Analytic Evaluation (Heuristic + WCAG 2.1 Audit)  
 
+**Deployed Redesigned Homepage:**  
+- Accessible prototype (Vercel): [https://philhealth-red.vercel.app/](https://philhealth-red.vercel.app/)  
+
 **Group Members:**  
 - Jamilo, Francine Claire Asunto  
 - Magatao, Darl Patrick Villajos  
@@ -58,7 +61,6 @@ The website functions as the primary digital interface for:
 **Scope Limitations:**
 - Evaluation focused exclusively on the homepage as the primary entry point
 - Analysis limited to visual and structural accessibility (not functional testing)
-- Assessment conducted without user testing due to time constraints
 
 #### Context & Timing
 
@@ -557,10 +559,3 @@ This analysis and redesign demonstrates a systematic approach to addressing acce
 ### Summary
 
 The redesigned PhilHealth homepage successfully addresses all identified accessibility and usability issues while establishing a foundation for continued improvement. The Modular Design Framework approach ensures that accessibility remains a core consideration in all future development, creating a sustainable system that serves all users effectively.
-
----
-
-**Document Version:** 1.0  
-**Last Updated:** 2024  
-**Evaluation Standard:** WCAG 2.1 Level AA  
-**Design Framework:** Modular Design Framework (MDF)

@@ -9,20 +9,6 @@
            HIGH-FIDELITY VISUAL SYSTEM
            WCAG 2.x AA Compliant Design System
            Government Blue Theme
-           
-           TABLE OF CONTENTS:
-           1. Design Tokens (Colors, Typography, Utilities)
-           2. Component 1: Header Navigation
-           3. Component 2: Alert/Notification
-           4. Component 3: Appointment Type Card (Basic Unit)
-           5. Component 4: Primary Button
-           6. Component 5: Terms and Conditions
-           7. Supporting Components (Info Section, Footer)
-           8. Responsive Design (Mobile, Tablet, Desktop)
-           ============================================ */
-        
-        /* ============================================
-           1. DESIGN TOKENS
            ============================================ */
         
         /* Color Palette - WCAG AA Compliant - Government Blue Theme */ 
@@ -39,7 +25,7 @@
             --focus-outline: #003366;      /* 12.6:1 contrast - AAA */
             --border-gray: #CCCCCC;
             --card-shadow: rgba(0, 0, 0, 0.1);
-            --hover-shadow: rgba(0, 0, 0, 0.12);
+            --hover-shadow: rgba(0, 0, 0, 0.15);
             --focus-shadow: rgba(0, 51, 102, 0.3);
         }
 
@@ -99,19 +85,6 @@
             line-height: 1.5;
         }
 
-        /* Screen Reader Only Utility - WCAG 1.3.1 */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
         /* Skip Link for Screen Readers - WCAG 2.4.1 */
         .skip-link {
             position: absolute;
@@ -132,9 +105,8 @@
         }
 
         /* ============================================
-           2. COMPONENT 1: HEADER NAVIGATION
-           WCAG: 2.4.7 Focus Visible, 2.4.1 Bypass Blocks, 1.4.3 Contrast
-           Modular component for site-wide navigation
+           HEADER NAVIGATION COMPONENT
+           WCAG: 2.4.7 Focus Visible, 2.4.1 Bypass Blocks
            ============================================ */
         header {
             background-color: var(--background);
@@ -153,8 +125,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 16px 32px;
-            flex-wrap: wrap;
         }
 
         .logo {
@@ -162,27 +132,6 @@
             align-items: center;
             text-decoration: none;
             gap: 12px;
-            flex-shrink: 0;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: 2px solid var(--primary-blue);
-            color: var(--primary-blue);
-            border-radius: 8px;
-            padding: 8px 12px;
-            font-size: 16px;
-            cursor: pointer;
-            align-items: center;
-            gap: 8px;
-            min-height: 44px;
-            min-width: 44px;
-        }
-
-        .menu-toggle:focus {
-            outline: 3px solid var(--focus-outline);
-            outline-offset: 2px;
         }
 
         .logo-text {
@@ -191,107 +140,10 @@
             color: var(--primary-blue);
         }
 
-        .brand-strip {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .brand-strip img {
-            height: 56px;
-            width: 56px;
-            object-fit: contain;
-            display: block;
-        }
-
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-
-        .brand-text .sub {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .brand-text .main {
-            font-size: 18px;
-            line-height: 1.2;
-        }
-
-        .brand-text .address {
-            font-size: 12px;
-            color: var(--secondary-text);
-        }
-
-        nav {
-            flex: 1 1 auto;
-            display: flex;
-            justify-content: flex-end;
-            min-width: 0;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: 2px solid var(--primary-blue);
-            color: var(--primary-blue);
-            padding: 8px 10px;
-            border-radius: 6px;
-            min-height: 44px;
-            min-width: 44px;
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-weight: 600;
-        }
-
-        .nav-toggle:focus {
-            outline: 3px solid var(--focus-outline);
-            outline-offset: 2px;
-        }
-
-        .nav-toggle-icon {
-            width: 20px;
-            height: 2px;
-            background: var(--primary-blue);
-            position: relative;
-            display: inline-block;
-        }
-
-        .nav-toggle-icon::before,
-        .nav-toggle-icon::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            width: 20px;
-            height: 2px;
-            background: var(--primary-blue);
-        }
-
-        .nav-toggle-icon::before {
-            top: -6px;
-        }
-
-        .nav-toggle-icon::after {
-            top: 6px;
-        }
-
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-            align-items: center;
-            padding: 0;
-            margin: 0;
-            row-gap: 8px;
+            gap: 32px;
         }
 
         nav a {
@@ -301,11 +153,6 @@
             padding: 8px 12px;
             border-radius: 4px;
             transition: background-color 0.2s;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            white-space: nowrap;
-            line-height: 1.2;
         }
 
         nav a:hover {
@@ -315,22 +162,12 @@
         nav a:focus {
             outline: 3px solid var(--focus-outline);
             outline-offset: 2px;
-            box-shadow: none;
-        }
-
-        /* Active page indicator */
-        nav a[aria-current="page"] {
-            background-color: var(--background);
-            border: 2px solid var(--primary-blue);
-            color: var(--primary-blue);
-            font-weight: 600;
-            box-shadow: 0 2px 4px var(--card-shadow);
+            box-shadow: 0 0 0 3px var(--focus-shadow);
         }
 
         /* ============================================
-           3. COMPONENT 2: ALERT/NOTIFICATION
-           WCAG: 1.4.3 Contrast, 3.3.1 Error Identification, 4.1.3 Status Messages
-           Modular component for system messages and notifications
+           ALERT/NOTIFICATION COMPONENT
+           WCAG: 1.4.3 Contrast, 3.3.1 Error Identification
            ============================================ */
         .alert {
             max-width: 1200px;
@@ -410,9 +247,8 @@
         }
 
         /* ============================================
-           4. COMPONENT 3: APPOINTMENT TYPE CARD (BASIC UNIT)
-           WCAG: 1.4.3 Contrast, 1.1.1 Non-text Content, 2.4.7 Focus, 2.5.5 Target Size
-           Core modular component - reusable card pattern
+           APPOINTMENT TYPE CARD COMPONENT
+           WCAG: 1.4.3 Contrast, 1.1.1 Non-text Content, 2.4.7 Focus
            ============================================ */
         .appointment-types {
             display: grid;
@@ -469,9 +305,8 @@
         }
 
         /* ============================================
-           5. COMPONENT 4: PRIMARY BUTTON
-           WCAG: 1.4.3 Contrast, 2.5.5 Target Size, 2.4.7 Focus, 4.1.2 Name/Role/Value
-           Modular button component used across the system
+           PRIMARY BUTTON COMPONENT
+           WCAG: 1.4.3 Contrast, 2.5.5 Target Size, 2.4.7 Focus
            ============================================ */
         .btn-primary {
             background-color: var(--primary-blue);
@@ -508,9 +343,8 @@
         }
 
         /* ============================================
-           6. COMPONENT 5: TERMS AND CONDITIONS
-           WCAG: 1.4.3 Contrast, 3.3.2 Labels, 2.4.7 Focus, 4.1.2 Name/Role/Value
-           Modular component for collapsible legal agreements
+           TERMS AND CONDITIONS COMPONENT
+           WCAG: 1.4.3 Contrast, 3.3.2 Labels, 2.4.7 Focus
            ============================================ */
         .terms-section {
             background-color: var(--light-background);
@@ -616,8 +450,7 @@
         }
 
         /* ============================================
-           7. SUPPORTING COMPONENTS: INFO SECTION
-           Supplementary content component
+           INFO SECTION
            ============================================ */
         .info-section {
             background-color: var(--light-background);
@@ -652,15 +485,14 @@
         }
 
         /* ============================================
-           7. SUPPORTING COMPONENTS: FOOTER
+           FOOTER COMPONENT
            WCAG: 1.3.1 Info and Relationships, 2.4.4 Link Purpose
-           Site-wide footer with contact info and links
            ============================================ */
         footer {
             background-color: #1A1A1A;
             color: #FFFFFF;
-            padding: 32px 24px 16px;
-            margin-top: 48px;
+            padding: 48px 24px 24px;
+            margin-top: 64px;
         }
 
         .footer-container {
@@ -668,13 +500,12 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
+            gap: 32px;
         }
 
         .footer-section h3 {
             color: #FFFFFF;
-            margin-bottom: 12px;
-            font-size: 16px;
+            margin-bottom: 16px;
         }
 
         .footer-section ul {
@@ -684,14 +515,8 @@
         .footer-section a {
             color: #CCCCCC;
             text-decoration: none;
-            line-height: 1.6;
+            line-height: 2;
             display: block;
-            font-size: 14px;
-        }
-        
-        .footer-section li {
-            font-size: 14px;
-            line-height: 1.6;
         }
 
         .footer-section a:hover {
@@ -706,59 +531,27 @@
 
         .footer-bottom {
             max-width: 1200px;
-            margin: 24px auto 0;
-            padding-top: 16px;
+            margin: 32px auto 0;
+            padding-top: 24px;
             border-top: 1px solid #333333;
             text-align: center;
             color: #CCCCCC;
-            font-size: 13px;
-        }
-        
-        .footer-bottom p {
-            margin-bottom: 4px;
-            font-size: 13px;
+            font-size: 14px;
         }
 
-        /* ============================================
-           8. RESPONSIVE DESIGN
-           Mobile-first breakpoints for all devices
-           ============================================ */
-        
-        /* Tablet and Mobile (≤768px) */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: row;
-                align-items: center;
+                flex-direction: column;
+                align-items: flex-start;
                 gap: 12px;
-                flex-wrap: wrap;
-            }
-
-            .logo {
-                flex: 1 1 auto;
-            }
-
-            .menu-toggle {
-                display: inline-flex;
-                margin-left: auto;
-            }
-
-            nav {
-                width: 100%;
-                justify-content: flex-start;
             }
 
             nav ul {
-                flex-direction: column;
-                flex-wrap: nowrap;
-                gap: 12px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
                 width: 100%;
-                justify-content: flex-start;
-                row-gap: 8px;
-                display: none;
-            }
-
-            nav ul.open {
-                display: flex;
             }
 
             .appointment-types {
@@ -776,26 +569,8 @@
             main {
                 padding: 24px 16px;
             }
-
-            footer {
-                padding: 24px 16px 16px;
-                margin-top: 32px;
-            }
-
-            .footer-container {
-                gap: 20px;
-            }
         }
 
-        /* Desktop (≥1025px) - No wrapping navigation */
-        @media (min-width: 1025px) {
-            nav ul {
-                flex-wrap: nowrap;
-                gap: 24px;
-            }
-        }
-
-        /* Small Mobile (≤480px) */
         @media (max-width: 480px) {
             header {
                 padding: 8px 0;
@@ -819,32 +594,17 @@
     <!-- Skip Link - WCAG 2.4.1 Bypass Blocks -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- ============================================
-         COMPONENT 1: HEADER NAVIGATION
-         Modular component providing site-wide navigation
-         WCAG: 2.4.7 Focus Visible, 2.4.1 Bypass Blocks, 1.4.3 Contrast
-         ============================================ -->
+    <!-- Header Navigation Component -->
     <header role="banner">
         <div class="header-container">
             <a href="/" class="logo" aria-label="DFA Passport Appointment System Home">
-                <div class="brand-strip">
-                    <img src="LOGODFA/LOGO_Seal_of_the_Department_of_Foreign_Affairs_of_the_Philippines.png" alt="Department of Foreign Affairs seal">
-                    <div class="brand-text" aria-hidden="true">
-                        <span class="sub">Republic of the Philippines</span>
-                        <span class="main">Department of Foreign Affairs</span>
-                        <span class="address">2330 Roxas Boulevard, Pasay City, Philippines 1300</span>
-                    </div>
-                </div>
-                <span class="logo-text sr-only">DFA Passport Appointment System</span>
+                <span class="logo-text">DFA</span>
             </a>
-            <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
-                ☰ Menu
-            </button>
             <nav aria-label="Main Navigation">
-                <ul id="main-nav">
+                <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#requirements">Requirements</a></li>
-                    <li><a href="#appointment" aria-current="page">Appointment</a></li>
+                    <li><a href="#appointment" aria-current="page">Schedule an Appointment</a></li>
                     <li><a href="#locations">Where to Apply</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#payment">Payment</a></li>
@@ -853,11 +613,7 @@
         </div>
     </header>
 
-    <!-- ============================================
-         COMPONENT 2: ALERT/NOTIFICATION
-         Modular component for critical system messages
-         WCAG: 1.4.3 Contrast, 3.3.1 Error Identification, 4.1.3 Status Messages
-         ============================================ -->
+    <!-- Alert/Notification Component - Email Requirement -->
     <div class="alert" role="alert" aria-live="polite">
         <div class="alert-box">
             <span class="alert-icon" aria-hidden="true">⚠️</span>
@@ -876,11 +632,7 @@
             <p>Welcome to the DFA Online Passport Appointment System. Review all fields in the online form carefully and provide complete and accurate information.</p>
         </section>
 
-        <!-- ============================================
-             COMPONENT 3: APPOINTMENT TYPE CARD (Basic Unit)
-             Core modular component - reusable card pattern
-             WCAG: 1.4.3 Contrast, 1.1.1 Non-text Content, 2.4.7 Focus, 2.5.5 Target Size
-             ============================================ -->
+        <!-- Appointment Type Cards -->
         <section class="appointment-types" aria-labelledby="appointment-types-heading">
             <h2 id="appointment-types-heading" class="sr-only">Select Appointment Type</h2>
             
@@ -888,7 +640,6 @@
                 <div class="appointment-icon" aria-hidden="true">👤</div>
                 <h3>Individual Appointment</h3>
                 <p>Book an appointment for a single passport application or renewal. Use this option if you are applying for yourself only.</p>
-                <!-- COMPONENT 4: PRIMARY BUTTON (embedded modular component) -->
                 <a href="#individual-form" class="btn-primary" aria-label="Start Individual Appointment">Start Individual Appointment</a>
             </article>
 
@@ -900,11 +651,7 @@
             </article>
         </section>
 
-        <!-- ============================================
-             COMPONENT 5: TERMS AND CONDITIONS
-             Modular component for legal agreements with collapsible content
-             WCAG: 1.4.3 Contrast, 3.3.2 Labels, 2.4.7 Focus, 4.1.2 Name/Role/Value
-             ============================================ -->
+        <!-- Terms and Conditions Component -->
         <section class="terms-section" aria-labelledby="terms-heading">
             <div class="terms-header">
                 <h3 id="terms-heading">Terms and Conditions</h3>
@@ -1002,16 +749,24 @@
         </div>
     </footer>
 
-    <!-- ============================================
-         JAVASCRIPT: INTERACTIVE COMPONENT BEHAVIOR
-         Handles collapsible terms, mobile menu, and keyboard navigation
-         WCAG: 2.1.1 Keyboard, 4.1.2 Name/Role/Value (ARIA state management)
-         ============================================ -->
+    <!-- Screen Reader Only Class -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+
+    <!-- JavaScript for Terms Toggle -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // ==========================================
-            // Terms and Conditions Toggle (Component 5)
-            // ==========================================
             const termsToggle = document.querySelector('.terms-toggle');
             const termsContent = document.getElementById('terms-content');
             
@@ -1024,23 +779,7 @@
                 });
             }
 
-            // ==========================================
-            // Mobile Menu Toggle (Component 1)
-            // ==========================================
-            const menuToggle = document.querySelector('.menu-toggle');
-            const mainNav = document.getElementById('main-nav');
-
-            if (menuToggle && mainNav) {
-                menuToggle.addEventListener('click', function() {
-                    const isOpen = mainNav.classList.toggle('open');
-                    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                });
-            }
-
-            // ==========================================
-            // Appointment Card Keyboard Navigation (Component 3)
-            // WCAG 2.1.1 Keyboard - Enable Enter/Space activation
-            // ==========================================
+            // Keyboard navigation for appointment cards
             const appointmentCards = document.querySelectorAll('.appointment-card');
             appointmentCards.forEach(card => {
                 card.addEventListener('keydown', function(e) {
@@ -1055,20 +794,6 @@
             });
         });
     </script>
-
-    <!-- ============================================
-         END OF DFA APPOINTMENT SYSTEM
-         
-         WCAG 2.x AA COMPLIANT MODULAR DESIGN
-         - 5 Core Modular Components
-         - Fully Responsive (Mobile, Tablet, Desktop)
-         - Keyboard Accessible
-         - Screen Reader Optimized
-         
-         Department of Foreign Affairs
-         Office of Consular Affairs
-         Version 1.2.1
-         ============================================ -->
 </body>
 </html>
 
