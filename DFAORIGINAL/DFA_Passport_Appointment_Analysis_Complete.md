@@ -3,7 +3,6 @@
 
 **Project:** Accessibility Evaluation and High-Fidelity Redesign  
 **System:** Department of Foreign Affairs (DFA) Online Passport Appointment System  
-**URL:** https://passport.gov.ph/appointment  
 **Date:** December 2025  
 **Evaluation Method:** Analytic Evaluation (Heuristic + WCAG 2.1 Audit)  
 
@@ -12,6 +11,17 @@
 - Magatao, Darl Patrick Villajos  
 - Matulac, Scott Lyndon Quilaton  
 - Micarandayo, James
+
+---
+
+## 🔗 Important Links
+
+| Type | URL | Description |
+|------|-----|-------------|
+| **Original System (Analyzed)** | https://passport.gov.ph/appointment | Official DFA Passport Appointment System - target of our evaluation |
+| **Our High-Fidelity Redesign** | https://dfa-olive.vercel.app/ | WCAG 2.x AA compliant redesigned "Schedule an Appointment" page |
+
+> **Note:** This document analyzes the **original DFA system** (passport.gov.ph/appointment) and proposes improvements implemented in our **high-fidelity redesign** (dfa-olive.vercel.app). All identified issues, WCAG violations, and usability problems refer to the original system. Our redesign demonstrates how these issues are solved using a Modular Design Framework.
 
 ---
 
@@ -395,6 +405,11 @@ The lack of clear visual hierarchy makes it difficult for users to:
 
 The redesign phase addresses all identified issues through a systematic Modular Design Framework (MDF) approach. This methodology ensures consistent, scalable, and accessible component development while maintaining design integrity across the system.
 
+> **🚀 Live Demo:** Our high-fidelity redesign is deployed and accessible at:  
+> **https://dfa-olive.vercel.app/**  
+> 
+> This implementation demonstrates how the identified accessibility and usability issues from Part 1 are solved using modular, WCAG 2.x AA-compliant components. The redesign focuses specifically on the "Schedule an Appointment" entry page from the original system.
+
 ### Basic Unit & High-Fidelity Visual System
 
 #### Core Object Identification
@@ -636,6 +651,10 @@ Modularity ensures consistent, scalable accessibility through component-level co
 
 The redesigned "Schedule an Appointment" page implements five core modular components, each designed to address specific accessibility requirements while maintaining visual consistency and usability.
 
+**Live Implementation:** https://dfa-olive.vercel.app/  
+**Source Code:** `index.html` (1075 lines, fully self-contained with inline CSS/JS)  
+**Deployment:** Vercel (static hosting, HTTPS enabled, global CDN)
+
 #### Component 1: Header Navigation Component
 
 **Design Implementation:**
@@ -827,10 +846,27 @@ The Appointment Type Card component has been adapted for voice user interfaces, 
 
 ---
 
-## Sources
+## Sources & Project Deliverables
 
-- **Primary Source:** https://passport.gov.ph/appointment
+### Original System (Evaluation Target)
+- **URL:** https://passport.gov.ph/appointment
 - **Organization:** Department of Foreign Affairs - Office of Consular Affairs
-- **WCAG Standards:** Web Content Accessibility Guidelines (WCAG) 2.1, W3C Recommendation
+- **Purpose:** Official passport appointment scheduling system (evaluated for accessibility/usability issues)
+
+### Our High-Fidelity Redesign (Project Deliverable)
+- **Live Demo:** https://dfa-olive.vercel.app/
+- **Implementation:** Single-page high-fidelity mockup of "Schedule an Appointment"
+- **Compliance:** WCAG 2.x AA Level
+- **Framework:** Modular Design Framework (MDF) with 5 core components
+- **Technology:** Static HTML/CSS/JavaScript (deployed on Vercel)
+
+### Standards & References
+- **WCAG Standards:** Web Content Accessibility Guidelines (WCAG) 2.1, W3C Recommendation — https://www.w3.org/TR/WCAG21/
+- **Usability Heuristics:** Nielsen's 10 Usability Heuristics — https://www.nngroup.com/articles/ten-usability-heuristics/
+- **ARIA Practices:** WAI-ARIA Authoring Practices 1.2 — https://www.w3.org/TR/wai-aria-practices-1.2/
+- **Success Criterion References:** WCAG Quick Reference — https://www.w3.org/WAI/WCAG21/quickref/
+- **Original DFA Site (evaluated):** https://passport.gov.ph/appointment
+- **High-Fidelity Redesign (demo):** https://dfa-olive.vercel.app/
 - **Analysis Date:** December 2025
+- **Project Type:** Academic evaluation and redesign for IT-114 course
 
